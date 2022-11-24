@@ -1,10 +1,10 @@
-Bad Bank - MIT
+#Bad Bank - MIT
 
-App Information
+#App Information
 
-Title: Bad Bank Application
+3Title: Bad Bank Application
 
-Description:
+#Description:
 Bad Bank is the Capstone Project in the MIT - Fullstack Development with MERN. It is called Bad Bank due its security issues. 
 
 This application is made using simple React application where  concepts such as hooks, context, routing, and form validations, express, node.js, MongoDB. As well, the app has been depolyed using Heroku. 
