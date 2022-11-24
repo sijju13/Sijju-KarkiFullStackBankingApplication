@@ -1,20 +1,48 @@
 // const MongoClient = require('mongodb').MongoClient;
 //const url         = 'mongodb://localhost:27017';
+const querystring = require("querystring")
+const { ServerApiVersion } = require('mongodb');
 const MongoClient = require('mongodb').MongoClient;
-const url = 'mongodb+srv://sijju:Manutd.14@cluster0.7nym24f.mongodb.net/?retryWrites=true&w=majority';
-let db            = new MongoClient(url);
+const password = 'manutd14';
+const url = 'mongodb+srv://adminuser:' + querystring.escape(password) + '@cluster0.7nym24f.mongodb.net/?retryWrites=true&w=majority';
+let db            = null;
+
+
+// const uri = "mongodb+srv://sijju:manutd14@cluster0.7nym24f.mongodb.net/?retryWrites=true&w=majority";
+// const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+// client.connect(err => {
+//     console.log("ERR", err);
+//   const collection = client.db("redbank").collection("users");
+//   // perform actions on the collection object
+
+//   client.close();
+// });
+
 
 //https://data.mongodb-api.com/app/data-jebxu/endpoint/data/v1
 //Ae7o84q5SJcTlR8qaLIsrqpgHq6F06GzowEW1vCquHgm6qfslSMut6pqdphjwkb4
  
 // connect to mongo
 MongoClient.connect(url, {useUnifiedTopology: true}, function(err, client) {
-    console.log("Connected successfully to db server");
-
     // connect to myproject database
-   // db = client.db('Cluster0');
-   return client
+    // = client.db('redbank');
+    if(client){
+        db = client.db('redbank');
+        console.log("Connected successfully to db server");
+    }else{
+        console.log(err);
+    }
+   
 });
+
+// const mclient = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+// mclient.connect(err => {
+//   db = mclient.db("redbank")
+//   const collection = db.collection('users');
+//   console.log(collection);
+//   // perform actions on the collection object
+//   mclient.close();
+// });
 
 // create user account
 function create(name, email, password){
