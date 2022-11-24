@@ -1,6 +1,11 @@
+// const MongoClient = require('mongodb').MongoClient;
+//const url         = 'mongodb://localhost:27017';
 const MongoClient = require('mongodb').MongoClient;
-const url         = 'mongodb://localhost:27017';
+const url = 'mongodb+srv://sijju:Manutd.14@cluster0.7nym24f.mongodb.net/?retryWrites=true&w=majority';
 let db            = null;
+
+//https://data.mongodb-api.com/app/data-jebxu/endpoint/data/v1
+//Ae7o84q5SJcTlR8qaLIsrqpgHq6F06GzowEW1vCquHgm6qfslSMut6pqdphjwkb4
  
 // connect to mongo
 MongoClient.connect(url, {useUnifiedTopology: true}, function(err, client) {
